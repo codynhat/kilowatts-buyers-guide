@@ -48,7 +48,7 @@ export default function Index({ data }) {
       <Container className="justify-content-md-center bg-dark" fluid>
         <Row className="p-5 justify-content-md-center">
           <h1 className="text-secondary">Buy</h1>
-          &nbsp;
+          &nbsp; &nbsp;
           <h1 className="text-light">a BEV today</h1>
         </Row>
         <GalleryRow data={data} availability="Buy Now" />
@@ -56,9 +56,9 @@ export default function Index({ data }) {
       <Container className="justify-content-md-center bg-dark" fluid>
         <Row className="p-5 justify-content-md-center ">
           <h1 className="text-secondary">Rent</h1>
-          &nbsp;
+          &nbsp; &nbsp;
           <h1 className="text-light">a BEV today on</h1>
-          &nbsp;
+          &nbsp; &nbsp;
           <h1 className="text-light">Turo</h1>
         </Row>
         <TuroImage data={data} />
@@ -66,16 +66,16 @@ export default function Index({ data }) {
       <Container className="justify-content-md-center bg-dark" fluid>
         <Row className="p-5 justify-content-md-center ">
           <h1 className="text-secondary">Reserve</h1>
-          &nbsp;
-          <h1 className="text-light">an upcoming BEV today</h1>
+          &nbsp; &nbsp;
+          <h1 className="text-light">an upcoming BEV</h1>
         </Row>
         <GalleryRow data={data} availability="Reserve Now" />
       </Container>
       <Container className="justify-content-md-center bg-dark" fluid>
         <Row className="p-5 justify-content-md-center ">
           <h1 className="text-secondary">Watch</h1>
-          &nbsp;
-          <h1 className="text-light">BEVs coming soon</h1>
+          &nbsp;&nbsp;
+          <h1 className="text-light">for BEVs coming soon</h1>
         </Row>
         <GalleryRow data={data} availability="Coming Soon" />
       </Container>
