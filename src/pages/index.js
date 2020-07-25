@@ -1,22 +1,90 @@
 import React from "react"
-import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import { graphql } from "gatsby"
+import GalleryRow from "../components/gallery"
+import TuroImage from "../components/turo-image"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+import "../App.scss"
+import { Container, Row, Col } from "react-bootstrap"
 
-export default IndexPage
+export const query = graphql`
+  {
+    allGoogleSheetDataRow {
+      edges {
+        node {
+          availability
+          link
+          image
+        }
+      }
+    }
+    allFile {
+      edges {
+        node {
+          relativePath
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default function Index({ data }) {
+  return (
+    <>
+      <Container className="bg-light" fluid>
+        <Row>
+          <Col className="p-5">
+            <h1 className="text-dark text-center font-weight-bold">
+              U.S. Buyer's Guide for Battery Electric Vehicles
+            </h1>
+          </Col>
+        </Row>
+      </Container>
+      <Container className="justify-content-md-center bg-dark" fluid>
+        <Row className="p-5 justify-content-md-center">
+          <h1 className="text-secondary">Buy</h1>
+          &nbsp;
+          <h1 className="text-light">a BEV today</h1>
+        </Row>
+        <GalleryRow data={data} availability="Buy Now" />
+      </Container>
+      <Container className="justify-content-md-center bg-dark" fluid>
+        <Row className="p-5 justify-content-md-center ">
+          <h1 className="text-secondary">Rent</h1>
+          &nbsp;
+          <h1 className="text-light">a BEV today on</h1>
+          &nbsp;
+          <h1 className="text-light">Turo</h1>
+        </Row>
+        <TuroImage data={data} />
+      </Container>
+      <Container className="justify-content-md-center bg-dark" fluid>
+        <Row className="p-5 justify-content-md-center ">
+          <h1 className="text-secondary">Reserve</h1>
+          &nbsp;
+          <h1 className="text-light">an upcoming BEV today</h1>
+        </Row>
+        <GalleryRow data={data} availability="Reserve Now" />
+      </Container>
+      <Container className="justify-content-md-center bg-dark" fluid>
+        <Row className="p-5 justify-content-md-center ">
+          <h1 className="text-secondary">Watch</h1>
+          &nbsp;
+          <h1 className="text-light">BEVs coming soon</h1>
+        </Row>
+        <GalleryRow data={data} availability="Coming Soon" />
+      </Container>
+      <Container>
+        <Row className="text-dark p-5 justify-content-md-center">
+          Vehicle images provided courtesy of vehicle manufacturer's website for
+          editorial use. Not for reuse or redistribution.
+        </Row>
+      </Container>
+    </>
+  )
+}
