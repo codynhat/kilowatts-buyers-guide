@@ -45,16 +45,16 @@ export default function Index({ data }) {
           </Col>
         </Row>
       </Container>
-      <Container className="justify-content-md-center bg-dark" fluid>
-        <Row className="p-5 justify-content-md-center">
+      <Container className="justify-content-sm-center bg-dark" fluid>
+        <Row className="p-5 justify-content-sm-center">
           <h1 className="text-secondary">Buy</h1>
           &nbsp; &nbsp;
           <h1 className="text-light">a BEV today</h1>
         </Row>
         <GalleryRow data={data} availability="Buy Now" />
       </Container>
-      <Container className="justify-content-md-center bg-dark" fluid>
-        <Row className="p-5 justify-content-md-center ">
+      <Container className="justify-content-sm-center bg-dark" fluid>
+        <Row className="p-5 justify-content-sm-center ">
           <h1 className="text-secondary">Rent</h1>
           &nbsp; &nbsp;
           <h1 className="text-light">a BEV today on</h1>
@@ -63,16 +63,16 @@ export default function Index({ data }) {
         </Row>
         <TuroImage data={data} />
       </Container>
-      <Container className="justify-content-md-center bg-dark" fluid>
-        <Row className="p-5 justify-content-md-center ">
+      <Container className="justify-content-sm-center bg-dark" fluid>
+        <Row className="p-5 justify-content-sm-center">
           <h1 className="text-secondary">Reserve</h1>
           &nbsp; &nbsp;
           <h1 className="text-light">an upcoming BEV</h1>
         </Row>
         <GalleryRow data={data} availability="Reserve Now" />
       </Container>
-      <Container className="justify-content-md-center bg-dark" fluid>
-        <Row className="p-5 justify-content-md-center ">
+      <Container className="justify-content-sm-center bg-dark" fluid>
+        <Row className="p-5 justify-content-sm-center ">
           <h1 className="text-secondary">Watch</h1>
           &nbsp;&nbsp;
           <h1 className="text-light">for BEVs coming soon</h1>
@@ -80,7 +80,7 @@ export default function Index({ data }) {
         <GalleryRow data={data} availability="Coming Soon" />
       </Container>
       <Container>
-        <Row className="text-dark p-5 justify-content-md-center">
+        <Row className="text-dark p-5 justify-content-sm-center">
           Vehicle images provided courtesy of vehicle manufacturer's website for
           editorial use. Not for reuse or redistribution.
         </Row>
