@@ -27,7 +27,7 @@ module.exports = {
       options: {
         spreadsheetId: "1aZ1pb9QjMAZjyDYSeyq7uM9oFqav4jMAl6l7spfCTIE",
         worksheetTitle: "data",
-        credentials: require("./credentials.json"),
+        credentials: JSON.parse(process.env.SHEETS_SERVICE_ACCOUNT),
       },
     },
     `gatsby-transformer-sharp`,
