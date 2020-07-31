@@ -12,6 +12,11 @@ export const query = graphql`
     allGoogleSheetDataRow {
       edges {
         node {
+          make
+          model
+          class
+          eparange
+          releasedate
           availability
           link
           image
@@ -36,7 +41,7 @@ export const query = graphql`
 export default function Index({ data }) {
   return (
     <>
-      <Container className="bg-light" fluid>
+      <Container fluid>
         <Row>
           <Col className="p-5">
             <h1 className="text-dark text-center font-weight-bold">
@@ -49,7 +54,7 @@ export default function Index({ data }) {
         <Row className="p-5 justify-content-sm-center">
           <h1 className="text-secondary">Buy</h1>
           &nbsp; &nbsp;
-          <h1 className="text-light">a BEV today</h1>
+          <h1 className="text-white">a BEV today</h1>
         </Row>
         <GalleryRow data={data} availability="Buy Now" />
       </Container>
@@ -57,9 +62,9 @@ export default function Index({ data }) {
         <Row className="p-5 justify-content-sm-center ">
           <h1 className="text-secondary">Rent</h1>
           &nbsp; &nbsp;
-          <h1 className="text-light">a BEV today on</h1>
+          <h1 className="text-white">a BEV today on</h1>
           &nbsp; &nbsp;
-          <h1 className="text-light">Turo</h1>
+          <h1 className="text-white">Turo</h1>
         </Row>
         <TuroImage data={data} />
       </Container>
@@ -67,7 +72,7 @@ export default function Index({ data }) {
         <Row className="p-5 justify-content-sm-center">
           <h1 className="text-secondary">Reserve</h1>
           &nbsp; &nbsp;
-          <h1 className="text-light">an upcoming BEV</h1>
+          <h1 className="text-white">an upcoming BEV</h1>
         </Row>
         <GalleryRow data={data} availability="Reserve Now" />
       </Container>
@@ -75,7 +80,7 @@ export default function Index({ data }) {
         <Row className="p-5 justify-content-sm-center ">
           <h1 className="text-secondary">Watch</h1>
           &nbsp;&nbsp;
-          <h1 className="text-light">for BEVs coming soon</h1>
+          <h1 className="text-white">for BEVs coming soon</h1>
         </Row>
         <GalleryRow data={data} availability="Coming Soon" />
       </Container>
