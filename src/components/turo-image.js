@@ -6,13 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Button from "react-bootstrap/Button"
 
 export default function TuroImage({ data }) {
-  const image = data.allFile.edges.find(f => {
-    return f.node.relativePath === "turo-white.png"
-  })
+  const image = data.file
 
   return (
     <Col className="text-center p-auto m-auto" xs="12" sm="6" md="6" lg="3">
-      <Img fluid={image.node.childImageSharp.fluid} alt="" />
+      <Img fluid={image.childImageSharp.fluid} alt="" />
       <a href="https://turo.com/us/en/search?fuelTypes=ELECTRIC&location=Current%20location&refreshSearch=true">
         <Button variant="secondary">Learn More</Button>
       </a>

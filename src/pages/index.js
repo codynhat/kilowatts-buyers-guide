@@ -28,10 +28,17 @@ export const query = graphql`
         node {
           relativePath
           childImageSharp {
-            fluid {
+            fluid(maxWidth: 800, maxHeight: 600) {
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    file(relativePath: { eq: "turo-white.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
         }
       }
     }
