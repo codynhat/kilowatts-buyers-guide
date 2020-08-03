@@ -4,6 +4,8 @@ import { Col } from "react-bootstrap"
 import Img from "gatsby-image"
 import "bootstrap/dist/css/bootstrap.min.css"
 import moment from "moment"
+import Button from "react-bootstrap/Button"
+import Card from "react-bootstrap/Card"
 
 function dateEstimator(dateStr) {
   const d = moment(dateStr, "MMMM YYYY")
@@ -18,7 +20,7 @@ function dateEstimator(dateStr) {
   }
 }
 
-export default function CarImage({ model, image }) {
+export default function CarImage({ model, image, actionText }) {
   const [isOverlayShown, setIsOverlayShown] = useState(false)
 
   var rangeOrDate
@@ -41,52 +43,86 @@ export default function CarImage({ model, image }) {
   }
 
   return (
-    <Col className="p-1 m-auto" xs="12" sm="6" md="4" lg="3">
-      <a
-        href={model.node.link}
-        onMouseEnter={() => setIsOverlayShown(true)}
-        onMouseLeave={() => setIsOverlayShown(false)}
+    <>
+      <Col
+        className="d-none d-sm-inline p-1 m-auto"
+        xs="12"
+        sm="10"
+        md="5"
+        lg="4"
+        xl="3"
       >
-        <Img fluid={image.node.childImageSharp.fluid} alt="" />
-        {isOverlayShown && (
-          <>
-            <div
-              className="position-absolute align-middle bg-secondary"
-              style={{
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "100%",
-                height: "100%",
-                opacity: "0.75",
-                textAlign: "center",
-                verticalAlign: "middle",
-              }}
-            ></div>
-            <div
-              className="position-absolute align-middle text-dark"
-              style={{
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "100%",
-                height: "100%",
-                textAlign: "center",
-                verticalAlign: "middle",
-              }}
-            >
-              <h3 className="p-2 pl-3 pr-3 mt-3 font-weight-bold">
-                {model.node.make} {model.node.model}
-              </h3>
-              <span>
-                {model.node.class}
-                <br />
-                {rangeOrDate}
-              </span>
-            </div>
-          </>
-        )}
-      </a>
-    </Col>
+        <a
+          href={model.node.link}
+          onMouseEnter={() => setIsOverlayShown(true)}
+          onMouseLeave={() => setIsOverlayShown(false)}
+        >
+          <Img fluid={image.node.childImageSharp.fluid} alt="" />
+          {isOverlayShown && (
+            <>
+              <div
+                className="position-absolute align-middle bg-secondary"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "100%",
+                  height: "100%",
+                  minHeight: "190px",
+                  opacity: "0.75",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              ></div>
+              <div
+                className="position-absolute align-middle text-dark"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "100%",
+                  height: "100%",
+                  minHeight: "190px",
+                  textAlign: "center",
+                  verticalAlign: "middle",
+                }}
+              >
+                <h3 className="pt-auto pb-auto pl-3 pr-3 mt-3 font-weight-bold">
+                  {model.node.make} {model.node.model}
+                </h3>
+                <div className="pb-2">
+                  {model.node.class}
+                  <br />
+                  {rangeOrDate}
+                </div>
+                <Button variant="dark">{actionText}</Button>
+              </div>
+            </>
+          )}
+        </a>
+      </Col>
+      <Card
+        bg="secondary"
+        className="d-inline d-sm-none mt-2 mb-2"
+        style={{ width: "100%" }}
+      >
+        <Img
+          className="card-img-top"
+          fluid={image.node.childImageSharp.fluid}
+          alt=""
+        />
+        <Card.Body>
+          <Card.Title>
+            {model.node.make} {model.node.model}
+          </Card.Title>
+          <Card.Text>
+            {model.node.class}
+            <br />
+            {rangeOrDate}
+          </Card.Text>
+          <Button variant="dark">{actionText}</Button>
+        </Card.Body>
+      </Card>
+    </>
   )
 }

@@ -50,39 +50,45 @@ export default function Index({ data }) {
           </Col>
         </Row>
       </Container>
-      <Container className="justify-content-sm-center bg-dark" fluid>
-        <Row className="p-5 justify-content-sm-center">
-          <h1 className="text-secondary">Buy</h1>
-          &nbsp; &nbsp;
-          <h1 className="text-white">a BEV today</h1>
+      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
+        <Row className="pt-5 justify-content-sm-center">
+          <h1 className="text-center text-white">
+            <span className="text-secondary">Buy</span> a BEV today
+          </h1>
         </Row>
-        <GalleryRow data={data} availability="Buy Now" />
+        <GalleryRow data={data} availability="Buy Now" actionText="Buy Now" />
       </Container>
-      <Container className="justify-content-sm-center bg-dark" fluid>
-        <Row className="p-5 justify-content-sm-center ">
-          <h1 className="text-secondary">Rent</h1>
-          &nbsp; &nbsp;
-          <h1 className="text-white">a BEV today on</h1>
-          &nbsp; &nbsp;
-          <h1 className="text-white">Turo</h1>
+      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
+        <Row className="p-5 justify-content-sm-center">
+          <h1 className="text-center text-white">
+            <span className="text-secondary">Rent</span> a BEV today on Turo
+          </h1>
         </Row>
         <TuroImage data={data} />
       </Container>
-      <Container className="justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
         <Row className="p-5 justify-content-sm-center">
-          <h1 className="text-secondary">Reserve</h1>
-          &nbsp; &nbsp;
-          <h1 className="text-white">an upcoming BEV</h1>
+          <h1 className="text-center text-white">
+            <span className="text-secondary">Reserve</span> an upcoming BEV
+          </h1>
         </Row>
-        <GalleryRow data={data} availability="Reserve Now" />
+        <GalleryRow
+          data={data}
+          availability="Reserve Now"
+          actionText="Reserve Now"
+        />
       </Container>
-      <Container className="justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 pb-5 justify-content-sm-center bg-dark" fluid>
         <Row className="p-5 justify-content-sm-center ">
-          <h1 className="text-secondary">Watch</h1>
-          &nbsp;&nbsp;
-          <h1 className="text-white">for BEVs coming soon</h1>
+          <h1 className="text-center text-white">
+            <span className="text-secondary">Watch</span> for BEVs coming soon
+          </h1>
         </Row>
-        <GalleryRow data={data} availability="Coming Soon" />
+        <GalleryRow
+          data={data}
+          availability="Coming Soon"
+          actionText="Learn More"
+        />
       </Container>
       <Container>
         <Row className="text-dark p-5 justify-content-sm-center">

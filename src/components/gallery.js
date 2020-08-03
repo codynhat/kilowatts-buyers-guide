@@ -4,7 +4,7 @@ import { Row } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
 import CarImage from "./car-image"
 
-export default function GalleryRow({ data, availability }) {
+export default function GalleryRow({ data, availability, actionText }) {
   const files = data.allFile.edges
   const objects = data.allGoogleSheetDataRow.edges
   const models = objects.filter(obj => {
@@ -19,8 +19,10 @@ export default function GalleryRow({ data, availability }) {
       return f.node.relativePath === model.node.image
     })
 
-    elements.push(<CarImage model={model} image={image}></CarImage>)
+    elements.push(
+      <CarImage model={model} image={image} actionText={actionText}></CarImage>
+    )
   }
 
-  return <Row className="p-5">{elements}</Row>
+  return <Row className="p-3">{elements}</Row>
 }
