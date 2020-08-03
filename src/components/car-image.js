@@ -113,14 +113,18 @@ export default function CarImage({ model, image, actionText }) {
         />
         <Card.Body>
           <Card.Title>
-            {model.node.make} {model.node.model}
+            <span className="font-weight-bold">
+              {model.node.make} {model.node.model}
+            </span>
           </Card.Title>
           <Card.Text>
             {model.node.class}
             <br />
             {rangeOrDate}
           </Card.Text>
-          <Button variant="dark">{actionText}</Button>
+          <a href={model.node.link}>
+            <Button variant="dark">{actionText}</Button>
+          </a>
         </Card.Body>
       </Card>
     </>

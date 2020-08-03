@@ -51,7 +51,7 @@ export default function Index({ data }) {
         </Row>
       </Container>
       <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
-        <Row className="pt-5 justify-content-sm-center">
+        <Row className="p-5 justify-content-sm-center">
           <h1 className="text-center text-white">
             <span className="text-secondary">Buy</span> a BEV today
           </h1>
