@@ -57,7 +57,7 @@ export default function Index({ data }) {
           </Col>
         </Row>
       </Container>
-      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 justify-content-sm-center bg-dark px-5" fluid>
         <Row className="p-5 justify-content-sm-center">
           <h1 className="text-center text-white">
             <span className="text-secondary">Buy</span> a BEV today
@@ -65,7 +65,7 @@ export default function Index({ data }) {
         </Row>
         <GalleryRow data={data} availability="Buy Now" actionText="Buy Now" />
       </Container>
-      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 justify-content-sm-center bg-dark px-5" fluid>
         <Row className="p-5 justify-content-sm-center">
           <h1 className="text-center text-white">
             <span className="text-secondary">Rent</span> a BEV today on Turo
@@ -73,7 +73,7 @@ export default function Index({ data }) {
         </Row>
         <TuroImage data={data} />
       </Container>
-      <Container className="pt-5 justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 justify-content-sm-center bg-dark px-5" fluid>
         <Row className="p-5 justify-content-sm-center">
           <h1 className="text-center text-white">
             <span className="text-secondary">Reserve</span> an upcoming BEV
@@ -85,7 +85,7 @@ export default function Index({ data }) {
           actionText="Reserve Now"
         />
       </Container>
-      <Container className="pt-5 pb-5 justify-content-sm-center bg-dark" fluid>
+      <Container className="pt-5 pb-5 justify-content-sm-center bg-dark px-5" fluid>
         <Row className="p-5 justify-content-sm-center ">
           <h1 className="text-center text-white">
             <span className="text-secondary">Watch</span> for BEVs coming soon
