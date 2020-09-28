@@ -3,6 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import GalleryRow from "../components/gallery"
 import TuroImage from "../components/turo-image"
+import Img from "gatsby-image"
 
 import "../App.scss"
 import { Container, Row, Col } from "react-bootstrap"
@@ -35,7 +36,14 @@ export const query = graphql`
         }
       }
     }
-    file(relativePath: { eq: "turo-white.png" }) {
+    turo: file(relativePath: { eq: "turo-white.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    logo: file(relativePath: { eq: "Logo-Wordmark.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -54,6 +62,14 @@ export default function Index({ data }) {
             <h1 className="text-dark text-center font-weight-bold">
               U.S. Buyer's Guide for Battery Electric Vehicles
             </h1>
+          </Col>
+        </Row>
+        <Row className="justify-content-sm-center p-5">
+          <Col xs="12" sm="8" md="6" lg="4">
+            <h3 className="text-dark text-center font-weight-bold">Created by</h3>
+            <a href="http://kilowatt.media">
+              <Img fluid={data.logo.childImageSharp.fluid} alt="" />
+            </a>
           </Col>
         </Row>
       </Container>
