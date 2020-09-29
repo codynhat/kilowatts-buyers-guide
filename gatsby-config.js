@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Kilowatts US BEV Buyer's Guide`,
+    title: `Kilowatt Media | US BEV Buyer's Guide`,
     description: ``,
     author: `@codynhat`,
   },

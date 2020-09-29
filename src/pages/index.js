@@ -7,15 +7,21 @@ import Img from "gatsby-image"
 
 import "../App.scss"
 import { Container, Row, Col } from "react-bootstrap"
+import { Helmet } from "react-helmet"
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allGoogleSheetDataRow {
       edges {
         node {
           make
           model
-          class
+          class   
           eparange
           releasedate
           availability
@@ -56,6 +62,9 @@ export const query = graphql`
 export default function Index({ data }) {
   return (
     <>
+      <Helmet title={data.site.siteMetadata.title}>
+        {data.site.siteMetadata.title && <meta property="og:title" content={data.site.siteMetadata.title} />}
+      </Helmet>
       <Container fluid>
         <Row>
           <Col className="p-5">
