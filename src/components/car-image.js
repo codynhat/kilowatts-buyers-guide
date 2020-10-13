@@ -69,7 +69,7 @@ export default function CarImage({ model, image, actionText }) {
               <br />
               {rangeOrDate}
             </Card.Text>
-            <a href={model.node.link} onclick={goal}>
+            <a href={model.node.link} onclick={goal} target="_blank" rel="noreferrer">
               <Button variant="secondary">{actionText}</Button>
             </a>
           </Card.Body>
