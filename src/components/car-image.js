@@ -40,6 +40,15 @@ export default function CarImage({ model, image, actionText }) {
     )
   }
 
+  var goal
+  if (actionText === "Buy Now") {
+    goal = "fathom.trackGoal('LHUGDJTW', 0);";
+  } else if (actionText === "Reserve Now") {
+    goal = "fathom.trackGoal('RASPFM9I', 0);";
+  } else if (actionText === "Learn More") {
+    goal = "fathom.trackGoal('R4L1YBSW', 0);";
+  }
+
   return (
     <>
       <Col className="p-3 m-auto" xs="12" sm="6" md="6" lg="4" xl="3">
@@ -60,7 +69,7 @@ export default function CarImage({ model, image, actionText }) {
               <br />
               {rangeOrDate}
             </Card.Text>
-            <a href={model.node.link}>
+            <a href={model.node.link} onclick={goal}>
               <Button variant="secondary">{actionText}</Button>
             </a>
           </Card.Body>
