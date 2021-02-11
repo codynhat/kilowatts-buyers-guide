@@ -22,7 +22,7 @@ function dateEstimator(dateStr) {
 
 export default function CarImage({ model, image, actionText }) {
   var rangeOrDate
-  if (model.node.eparange != null) {
+  if (model.node.eparange != null && actionText === "Buy Now") {
     rangeOrDate = (
       <>
         EPA Range up to{" "}
@@ -42,11 +42,11 @@ export default function CarImage({ model, image, actionText }) {
 
   var goal
   if (actionText === "Buy Now") {
-    goal = "fathom.trackGoal('LHUGDJTW', 0);";
+    goal = "fathom.trackGoal('LHUGDJTW', 0);"
   } else if (actionText === "Reserve Now") {
-    goal = "fathom.trackGoal('RASPFM9I', 0);";
+    goal = "fathom.trackGoal('RASPFM9I', 0);"
   } else if (actionText === "Learn More") {
-    goal = "fathom.trackGoal('R4L1YBSW', 0);";
+    goal = "fathom.trackGoal('R4L1YBSW', 0);"
   }
 
   return (
@@ -69,7 +69,12 @@ export default function CarImage({ model, image, actionText }) {
               <br />
               {rangeOrDate}
             </Card.Text>
-            <a href={model.node.link} onclick={goal} target="_blank" rel="noreferrer">
+            <a
+              href={model.node.link}
+              onclick={goal}
+              target="_blank"
+              rel="noreferrer"
+            >
               <Button variant="secondary">{actionText}</Button>
             </a>
           </Card.Body>
